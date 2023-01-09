@@ -18,6 +18,11 @@
             <artifactId>neodatis-odb</artifactId>
             <version>1.9.30.689</version>
         </dependency>
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE150</version>
+        </dependency>
     </dependencies>
     
 </project>

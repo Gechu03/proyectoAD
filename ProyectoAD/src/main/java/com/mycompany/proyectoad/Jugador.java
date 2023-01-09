@@ -4,12 +4,14 @@
  */
 package com.mycompany.proyectoad;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Vespertino
  */
 public class Jugador {
-    private String nombre;
+    public String nombre;
     private String posicion;
     private int goles;
     private int edad;
@@ -20,6 +22,14 @@ public class Jugador {
         this.posicion = posicion;
         this.goles = goles;
         this.edad = edad;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -58,19 +68,24 @@ public class Jugador {
         this.edad = edad;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
     
     
     @Override
     public String toString() {
-        String resultado = "El jugador: " + this.nombre +" ha marcado " + goles + " esta temporada, juega de " + posicion + " a sus " + edad ;
+        String resultado = nombre ;
         return resultado;
     }
+    
+    public ArrayList<Jugador> listaJugadores(){
+        ArrayList<Jugador> temp = new ArrayList<>();
+        
+        temp.add(new Jugador("Messi", "Delantero", 600, 30, 0));
+        temp.add(new Jugador("Cristiano", "Delantero", 700, 32, 1));
+        temp.add(new Jugador("Benzema", "Delantero", 300, 31, 2));
+        temp.add(new Jugador("Modric", "Centrocampista", 50, 34, 3));
+        temp.add(new Jugador("Gavi", "Centrocampista", 30, 21, 4));
+        return temp;
+    }
+        
    
 }
