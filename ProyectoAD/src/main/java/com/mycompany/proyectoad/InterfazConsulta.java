@@ -40,6 +40,7 @@ public class InterfazConsulta extends javax.swing.JFrame {
         
         if(resultado.isEmpty()){
             JOptionPane.showMessageDialog(null, "No existe ningun equipo con ese nombre");
+           
         }
         final DefaultListModel model = new DefaultListModel();
         Equipo j = new Equipo();

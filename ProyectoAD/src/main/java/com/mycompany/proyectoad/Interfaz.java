@@ -59,17 +59,16 @@ public class Interfaz extends javax.swing.JFrame {
         this.setLocation((pantallaTamano.width / 2) - (this.getWidth() / 2), (pantallaTamano.height / 2) - (this.getHeight() / 2));
         this.setResizable(false);
         this.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
-                int i = JOptionPane.showConfirmDialog(null, "Seguro que quiere salir?");
-                if (i == 0) {
+                
                     ArrayList<Equipo> temp = dequipo.devulveTodos();
                     for (Equipo mostrar : temp) {
                         System.out.println(mostrar);
                     }
                     odb.close();
                     System.exit(0);
-                }
-
+                
                 //cierra aplicacion
             }
         });
@@ -253,7 +252,8 @@ public class Interfaz extends javax.swing.JFrame {
     private void BotonLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonLimpiarActionPerformed
         InputEstadio.setText("");
         InputNombre.setText("");
-
+        ListaJugadores.clearSelection();
+        ListaEntrenador.clearSelection();
     }//GEN-LAST:event_BotonLimpiarActionPerformed
 
     private Equipo recogerDatos() {
@@ -287,7 +287,7 @@ public class Interfaz extends javax.swing.JFrame {
         if (!(nombreTemp.equals("") || estadiotemp.equals(""))) {
 
             dequipo.insertar(recogerDatos());
-            int i = JOptionPane.showConfirmDialog(null, "Todo Correcto");
+            JOptionPane.showMessageDialog(BotonAlta.getParent(), "Todo Correcto");
 
         } else {
 
