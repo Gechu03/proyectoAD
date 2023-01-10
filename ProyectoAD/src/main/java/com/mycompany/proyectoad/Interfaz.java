@@ -327,17 +327,26 @@ public class Interfaz extends javax.swing.JFrame {
                     inputID.setVisible(true);
                     labelid.setVisible(true);
                     int idtemp = dequipo.ultimoId();
-                    JOptionPane.showMessageDialog(null, "Se han encontrado varios equipos con ese nombre introduce el id del mismo. Prueba con numeros del 0-" + idtemp + " ", "Fallo", 2);
+                    JOptionPane.showMessageDialog(null, "Se han encontrado varios equipos con ese nombre introduce el la posicion de la lista del mismo. Prueba con numeros del 0-" + idtemp + "", "Fallo", 2);
 
                 }else{
-                    inputID.setVisible(false);
-                    labelid.setVisible(false);
+                    boolean flag = false;
                     int idIntroducido = Integer.parseInt(inputID.getText());
                     for(Equipo eqtemp : listaEquipos){
                         if(eqtemp.getId() == idIntroducido){
                             Equipo actual = recogerDatos();
                             dequipo.modificar(eqtemp.getId(), actual);
+                            inputID.setText("");
+                            inputID.setVisible(false);
+                            labelid.setVisible(false);
+                            flag= true;
+                            
                         }
+                    }
+                    if(flag){
+                        JOptionPane.showMessageDialog(null, "Todo correcto", "Correcto", 1);
+                    }else{
+                        JOptionPane.showMessageDialog(null, "El id introducido no existe. Consulta los equipos con ese nombre y vuelve a intentarlo", "Fallo", 2);
                     }
                 }
                     
